@@ -17,28 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
 function doStuff() {
   list = document.querySelector('ul')
   li = document.createElement('li')
+  li.style.color = dropdown.options[dropdown.selectedIndex].value
   li.innerHTML = `${input.value} <button class='edit'>edit</button> <button class='remove'>x</button>`
   list.appendChild(li)
   liID()
   removeLI()
   editLI()
-}
-
-function priority() {
-  dropdown = document.getElementById('dropdown')
-  dropdownSelection = dropdown.options[dropdown.selectedIndex].value
-  li = document.querySelectorAll('li')[0]
-  switch (dropdownSelection) {
-    case 'low':
-      li.innerHTML.style.color = 'green'
-      break;
-    case 'medium':
-      li.innerHTML.style.color = 'yellow'
-      break;
-    case 'high':
-      li.innerHTML.style.color = 'red'      
-      break;
-  }
 }
 
 function liID() {
