@@ -12,13 +12,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   function change() {
     let text = document.getElementById("new-task-description").value;
-    let newTask = new Task(text);
+    let prio = document.getElementById("dropdown").value
+    let newTask = new Task(text, prio);
     taskList.tasks.push(newTask);
   }
 
   function addTasksToPage() {
+    let lastTask = taskList.tasks[taskList.tasks.length-1]
     document.getElementById("tasks").innerHTML += 
-    `<li>${taskList.tasks[taskList.tasks.length-1].text} 
+    `<li><font color="${lastTask.color()}">${lastTask.text}</font>
     <button onclick="deleteChild()">X</button>`;
   }
 });
